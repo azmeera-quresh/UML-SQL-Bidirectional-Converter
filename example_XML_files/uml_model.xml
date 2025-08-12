@@ -1,0 +1,54 @@
+<uml:Model xmi:version="2.1"
+  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+  xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML">
+
+  <packagedElement xmi:type="uml:Class" xmi:id="user_id" name="User">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="username" type="String"/>
+    <ownedAttribute name="email" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="post_id" name="Post">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="title" type="String"/>
+    <ownedAttribute name="content" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="comment_id" name="Comment">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="text" type="String"/>
+    <ownedAttribute name="createdAt" type="Date"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="tag_id" name="Tag">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="label" type="String"/>
+  </packagedElement>
+
+  <!-- Associations -->
+
+  <!-- User 1  * Post -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_user_post">
+    <ownedEnd xmi:id="e1" type="user_id" name="author" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e2" type="post_id" name="posts" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <!-- Post 1  * Comment -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_post_comment">
+    <ownedEnd xmi:id="e3" type="post_id" name="post" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e4" type="comment_id" name="comments" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <!-- Comment 1 - 1 User (commenter) -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_comment_user">
+    <ownedEnd xmi:id="e5" type="comment_id" name="comment" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e6" type="user_id" name="commenter" lower="1" upper="1"/>
+  </packagedElement>
+
+  <!-- Post * - * Tag (many to many) -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_post_tag">
+    <ownedEnd xmi:id="e7" type="post_id" name="posts" lower="0" upper="-1"/>
+    <ownedEnd xmi:id="e8" type="tag_id" name="tags" lower="0" upper="-1"/>
+  </packagedElement>
+
+</uml:Model>

@@ -1,0 +1,50 @@
+<uml:Model xmi:version="2.1"
+  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+  xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML"
+  xmi:id="model_library"
+  name="LibraryModel">
+
+  <!-- Classes -->
+  <packagedElement xmi:type="uml:Class" xmi:id="class_book" name="Book">
+    <ownedAttribute xmi:id="attr_book_id" name="id" type="Integer"/>
+    <ownedAttribute xmi:id="attr_book_title" name="title" type="String"/>
+    <ownedAttribute xmi:id="attr_book_isbn" name="isbn" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="class_author" name="Author">
+    <ownedAttribute xmi:id="attr_author_id" name="id" type="Integer"/>
+    <ownedAttribute xmi:id="attr_author_name" name="name" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="class_library" name="Library">
+    <ownedAttribute xmi:id="attr_library_name" name="name" type="String"/>
+    <ownedAttribute xmi:id="attr_library_address" name="address" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="class_member" name="Member">
+    <ownedAttribute xmi:id="attr_member_id" name="id" type="Integer"/>
+    <ownedAttribute xmi:id="attr_member_name" name="name" type="String"/>
+    <ownedAttribute xmi:id="attr_member_email" name="email" type="String"/>
+  </packagedElement>
+
+  <!-- Associations -->
+
+  <!-- Book * - * Author -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_book_author">
+    <ownedEnd xmi:id="end_book" type="class_book" name="books" lower="0" upper="-1"/>
+    <ownedEnd xmi:id="end_author" type="class_author" name="authors" lower="1" upper="-1"/>
+  </packagedElement>
+
+  <!-- Library 1 - * Book -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_library_book">
+    <ownedEnd xmi:id="end_library" type="class_library" name="library" lower="1" upper="1"/>
+    <ownedEnd xmi:id="end_book_library" type="class_book" name="books" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <!-- Member * - * Book (borrowedBooks) -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_member_book">
+    <ownedEnd xmi:id="end_member" type="class_member" name="members" lower="0" upper="-1"/>
+    <ownedEnd xmi:id="end_book_member" type="class_book" name="borrowedBooks" lower="0" upper="-1"/>
+  </packagedElement>
+
+</uml:Model>

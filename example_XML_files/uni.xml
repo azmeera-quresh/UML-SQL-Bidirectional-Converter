@@ -1,0 +1,44 @@
+<uml:Model xmi:version="2.1"
+  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+  xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML">
+
+  <packagedElement xmi:type="uml:Class" xmi:id="student_id" name="Student">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="name" type="String"/>
+    <ownedAttribute name="email" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="course_id" name="Course">
+    <ownedAttribute name="code" type="String"/>
+    <ownedAttribute name="title" type="String"/>
+    <ownedAttribute name="credits" type="Integer"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="instructor_id" name="Instructor">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="name" type="String"/>
+    <ownedAttribute name="department" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="enrollment_id" name="Enrollment">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="grade" type="String"/>
+  </packagedElement>
+
+  <!-- Associations -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_student_enrollment">
+    <ownedEnd xmi:id="e1" type="student_id" name="student" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e2" type="enrollment_id" name="enrollments" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_course_enrollment">
+    <ownedEnd xmi:id="e3" type="course_id" name="course" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e4" type="enrollment_id" name="enrollments" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_instructor_course">
+    <ownedEnd xmi:id="e5" type="instructor_id" name="instructor" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e6" type="course_id" name="courses" lower="0" upper="-1"/>
+  </packagedElement>
+
+</uml:Model>

@@ -1,0 +1,45 @@
+<uml:Model xmi:version="2.1"
+  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+  xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML">
+
+  <packagedElement xmi:type="uml:Class" xmi:id="doctor_id" name="Doctor">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="name" type="String"/>
+    <ownedAttribute name="specialty" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="patient_id" name="Patient">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="name" type="String"/>
+    <ownedAttribute name="dob" type="Date"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="appointment_id" name="Appointment">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="date" type="Date"/>
+    <ownedAttribute name="reason" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="prescription_id" name="Prescription">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="medicine" type="String"/>
+    <ownedAttribute name="dosage" type="String"/>
+  </packagedElement>
+
+  <!-- Associations -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_patient_appointment">
+    <ownedEnd xmi:id="e1" type="patient_id" name="patient" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e2" type="appointment_id" name="appointments" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_doctor_appointment">
+    <ownedEnd xmi:id="e3" type="doctor_id" name="doctor" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e4" type="appointment_id" name="appointments" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_appointment_prescription">
+    <ownedEnd xmi:id="e5" type="appointment_id" name="appointment" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e6" type="prescription_id" name="prescriptions" lower="0" upper="-1"/>
+  </packagedElement>
+
+</uml:Model>

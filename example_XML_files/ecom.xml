@@ -1,0 +1,45 @@
+<uml:Model xmi:version="2.1"
+  xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+  xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML">
+
+  <packagedElement xmi:type="uml:Class" xmi:id="customer_id" name="Customer">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="name" type="String"/>
+    <ownedAttribute name="email" type="String"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="order_id" name="Order">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="orderDate" type="Date"/>
+    <ownedAttribute name="total" type="Double"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="product_id" name="Product">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="name" type="String"/>
+    <ownedAttribute name="price" type="Double"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Class" xmi:id="payment_id" name="Payment">
+    <ownedAttribute name="id" type="Integer"/>
+    <ownedAttribute name="amount" type="Double"/>
+    <ownedAttribute name="method" type="String"/>
+  </packagedElement>
+
+  <!-- Associations -->
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_customer_order">
+    <ownedEnd xmi:id="e1" type="customer_id" name="customer" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e2" type="order_id" name="orders" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_order_product">
+    <ownedEnd xmi:id="e3" type="order_id" name="order" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e4" type="product_id" name="products" lower="0" upper="-1"/>
+  </packagedElement>
+
+  <packagedElement xmi:type="uml:Association" xmi:id="assoc_order_payment">
+    <ownedEnd xmi:id="e5" type="order_id" name="order" lower="1" upper="1"/>
+    <ownedEnd xmi:id="e6" type="payment_id" name="payment" lower="1" upper="1"/>
+  </packagedElement>
+
+</uml:Model>
