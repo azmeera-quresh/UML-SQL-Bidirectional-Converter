@@ -41,11 +41,12 @@ pip install streamlit sqlparse
 ## 📂 Installation
 ```bash
 git clone [https://github.com/azmeera-quresh/UML-SQL-Bidirectional-Converter.git]
-cd uml-sql-converter
+cd UML-SQL-Bidirectional-Converter
 
 ### To Run Application:
 
 ```in terminal 
 streamlit run app.py
+
 
 
