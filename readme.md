@@ -38,8 +38,14 @@ This is a Streamlit-based tool for converting between UML diagrams (in XMI 2.1 f
 ```bash
 pip install streamlit sqlparse
 
+## 📂 Installation
+```bash
+git clone [https://github.com/azmeera-quresh/UML-SQL-Bidirectional-Converter.git]
+cd uml-sql-converter
+
 ### To Run Application:
 
 ```in terminal 
 streamlit run app.py
+
 
