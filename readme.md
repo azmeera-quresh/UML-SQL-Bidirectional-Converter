@@ -42,3 +42,4 @@ pip install streamlit sqlparse
 
 ```in terminal 
 streamlit run app.py
+
